@@ -1,0 +1,164 @@
+websocket-client (1.2.1-2) unstable; urgency=medium
+
+  * Team upload to unstable.
+
+ -- Jeroen Ploemen <jcfp@debian.org>  Wed, 10 Nov 2021 10:15:12 +0000
+
+websocket-client (1.2.1-1) experimental; urgency=medium
+
+  * Team upload.
+
+  [ Ondřej Nový ]
+  * d/control: Update Maintainer field with new Debian Python Team
+    contact address.
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 12 to 13.
+
+  [ Emmanuel Arias ]
+  * d/watch: fix file to point correctly to the download link.
+  * New upstream version 1.2.1 (Closes: #995796).
+  * d/patches: remove no-backports patch. It is not longer need.
+  * d/control: bump Standards-Version to 4.6.0.1.
+  * wrap-and-sort.
+  * d/control: add python3-websocket as Build-Dependency. Used in tests.
+  * d/control: build depend on the package that provides the dh addon.
+  * d/rules: ignore upstream tests.
+    - Ignoring echo-server.py that run forever.
+    - Ignoring 'testBadURLs' test that made ws connections.
+  * d/control: Remove python3-six as build depends, it's no longer used.
+  * d/gbp.conf: set debian/master as default branch to be according to DEP-8.
+  * d/salsa-ci.yml: enable salsa-ci.
+  * d/python3-websocket.example: package example folder.
+  * d/copyright: Update License and Copyright. Upstream changed it.
+
+  [ Jeroen Ploemen ]
+  * Control: set Rules-Requires-Root: no.
+
+ -- Emmanuel Arias <eamanu@yaerobi.com>  Tue, 19 Oct 2021 08:08:58 +0000
+
+websocket-client (0.57.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Debian Janitor ]
+  * debian/copyright: use spaces rather than tabs to start continuation
+    lines.
+  * Bump debhelper from deprecated 9 to 12.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ Sophie Brun ]
+  * New upstream version 0.57.0 (Closes: #960535)
+  * Upstream license changes to BSD-3-clause
+  * Update debian/copyright: remove useless entry
+  * Add missing description of patch
+
+ -- Sophie Brun <sophie@offensive-security.com>  Mon, 27 Jul 2020 14:29:29 +0200
+
+websocket-client (0.53.0-2) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Use debhelper-compat instead of debian/compat.
+
+  [ Sandro Tosi ]
+  * Drop python2 support; Closes: #938814
+  * Bump Standards-Version to 4.4.1 (no changes needed)
+
+ -- Sandro Tosi <morph@debian.org>  Sat, 02 Nov 2019 16:56:44 -0400
+
+websocket-client (0.53.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Ondřej Nový ]
+  * Convert git repository from git-dpm to gbp layout
+
+  [ Christoph Berg ]
+  * New upstream version.
+  * Remove python-backports.ssl-match-hostname dependency. (Closes: #909973)
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Mon, 01 Oct 2018 10:54:13 +0200
+
+websocket-client (0.48.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/copyright: Use https protocol in Format field
+
+  [ Alexander GQ Gerasiov ]
+  * New upstream release.
+  * 0001-Use-debian-global-ca-cert-store-instead-of-local-mozilla-copy removed:
+    fixed upstream.
+  * Remove postrm scripts: update-alternative --remove is called from prerm.
+
+ -- Alexander GQ Gerasiov <gq@debian.org>  Tue, 10 Jul 2018 17:24:47 +0300
+
+websocket-client (0.37.0-2) unstable; urgency=medium
+
+  * Add patch:
+    - 0001-Use-debian-global-ca-cert-store-instead-of-local-mozilla-copy
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 08 Sep 2016 15:45:45 +0000
+
+websocket-client (0.37.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Fixed VCS URL (https)
+
+  [ Thomas Goirand ]
+  * New upstream release (Closes: #810088)
+  * Removed now useless version in python-all build-depends.
+  * Removed useless X-Python{3,}-Version headers.
+  * Standards-Version is now 3.9.8 (no change).
+  * Fixed duplicate short desc.
+  * Using update-alternatives to manage /usr/bin/wsdump.
+  * Add myself as uploader.
+  * Ran wrap-and-sort -t -a.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 11 Jul 2016 22:54:11 +0200
+
+websocket-client (0.18.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Do not ship tests module in python3-websocket binary package either
+    (Closes: #767400)
+    - Thanks to Teemu Hukkanen for the patch
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 14 Nov 2014 00:50:57 -0500
+
+websocket-client (0.18.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version.
+
+ -- Barry Warsaw <barry@debian.org>  Thu, 25 Sep 2014 09:40:28 -0400
+
+websocket-client (0.16.0a-2) unstable; urgency=medium
+
+  * Team upload.
+  * Add python3-websocket binary package. (Closes: #749943)
+  * d/control: wrap-and-sort
+
+ -- Barry Warsaw <barry@debian.org>  Wed, 20 Aug 2014 17:01:51 -0400
+
+websocket-client (0.16.0a-1) unstable; urgency=medium
+
+  * New upstream release
+    - Include the test-suite and run it at build-time (Closes: #741606, #744726)
+  * Switch buildsystem to pybuild
+  * Update copyright file
+  * Do not ship the tests module in the binary
+
+ -- Nicolas Dandrimont <olasd@debian.org>  Fri, 15 Aug 2014 23:51:19 +0200
+
+websocket-client (0.12.0-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #727759)
+
+ -- Nicolas Dandrimont <olasd@debian.org>  Sat, 21 Dec 2013 21:32:31 +0100

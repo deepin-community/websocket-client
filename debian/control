@@ -1,0 +1,34 @@
+Source: websocket-client
+Section: python
+Priority: optional
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders:
+ Nicolas Dandrimont <olasd@debian.org>,
+ Thomas Goirand <zigo@debian.org>,
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-python,
+ python3-all:any,
+ python3-pytest,
+ python3-setuptools,
+ python3-websockets,
+Standards-Version: 4.6.0.1
+Homepage: https://github.com/liris/websocket-client
+Vcs-Git: https://salsa.debian.org/python-team/packages/websocket-client.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/websocket-client
+Rules-Requires-Root: no
+
+Package: python3-websocket
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+Description: WebSocket client library - Python 3.x
+ websocket-client provides a low-level, synchronous API providing WebSocket
+ client functionality to Python programs. It conforms to the WebSocket
+ specification as standardized by the IETF in RFC 6455.
+ .
+ WebSocket is a protocol providing full-duplex communication channels over
+ TCP, mostly used in Web browsers.
+ .
+ This package provides the Python 3.x version.

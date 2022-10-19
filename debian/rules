@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=websocket
+
+export PYBUILD_TEST_ARGS=--ignore websocket/tests/echo-server.py \
+	                     --ignore websocket/tests/test_websocket.py \
+						 -k 'not testBadURLs'  # try to ws connections.
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild --test-pytest
+
+override_dh_install:
+	mv $(CURDIR)/debian/python3-websocket/usr/bin/wsdump.py $(CURDIR)/debian/python3-websocket/usr/bin/python3-wsdump
+	dh_install
