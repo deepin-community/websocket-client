@@ -1,12 +1,13 @@
-"""
+import sys
 
-"""
+import pkg_resources
+from setuptools import find_packages, setup
 
 """
 setup.py
 websocket - WebSocket client library for Python
 
-Copyright 2021 engn33r
+Copyright 2023 engn33r
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,12 +21,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-import sys
 
-from setuptools import setup
-import pkg_resources
-
-VERSION = "1.2.1"
+VERSION = "1.7.0"
 
 install_requires = []
 tests_require = []
@@ -35,25 +32,29 @@ setup(
     version=VERSION,
     description="WebSocket client for Python with low level API options",
     long_description=open("README.md").read(),
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     author="liris",
     author_email="liris.pp@gmail.com",
+    maintainer="engn33r",
+    maintainer_email="websocket.client@proton.me",
     license="Apache-2.0",
     url="https://github.com/websocket-client/websocket-client.git",
-    download_url='https://github.com/websocket-client/websocket-client/releases',
-    python_requires='>=3.6',
+    download_url="https://github.com/websocket-client/websocket-client/releases",
+    python_requires=">=3.8",
     extras_require={
         "test": ["websockets"],
         "optional": ["python-socks", "wsaccel"],
+        "docs": ["Sphinx >= 6.0", "sphinx_rtd_theme >= 1.1.0"],
     },
     classifiers=[
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: POSIX",
         "Operating System :: Microsoft :: Windows",
@@ -62,16 +63,18 @@ setup(
         "Intended Audience :: Developers",
     ],
     project_urls={
-        'Documentation': 'https://websocket-client.readthedocs.io/',
-        'Source': 'https://github.com/websocket-client/websocket-client/',
+        "Documentation": "https://websocket-client.readthedocs.io/",
+        "Source": "https://github.com/websocket-client/websocket-client/",
     },
-    keywords='websockets client',
-    scripts=["bin/wsdump.py"],
+    keywords="websockets client",
+    entry_points={
+        "console_scripts": [
+            "wsdump=websocket._wsdump:main",
+        ],
+    },
     install_requires=install_requires,
-    packages=["websocket", "websocket.tests"],
-    package_data={
-        'websocket.tests': ['data/*.txt']
-    },
+    packages=find_packages(),
+    package_data={"websocket.tests": ["data/*.txt"]},
     tests_require=tests_require,
-    test_suite="websocket.tests"
+    test_suite="websocket.tests",
 )

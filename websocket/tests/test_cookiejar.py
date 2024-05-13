@@ -1,12 +1,12 @@
-"""
+import unittest
 
-"""
+from websocket._cookiejar import SimpleCookieJar
 
 """
 test_cookiejar.py
 websocket - WebSocket client library for Python
 
-Copyright 2021 engn33r
+Copyright 2023 engn33r
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,20 +20,21 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-import unittest
-
-from websocket._cookiejar import SimpleCookieJar
 
 
 class CookieJarTest(unittest.TestCase):
     def testAdd(self):
         cookie_jar = SimpleCookieJar()
         cookie_jar.add("")
-        self.assertFalse(cookie_jar.jar, "Cookie with no domain should not be added to the jar")
+        self.assertFalse(
+            cookie_jar.jar, "Cookie with no domain should not be added to the jar"
+        )
 
         cookie_jar = SimpleCookieJar()
         cookie_jar.add("a=b")
-        self.assertFalse(cookie_jar.jar, "Cookie with no domain should not be added to the jar")
+        self.assertFalse(
+            cookie_jar.jar, "Cookie with no domain should not be added to the jar"
+        )
 
         cookie_jar = SimpleCookieJar()
         cookie_jar.add("a=b; domain=.abc")
@@ -69,7 +70,9 @@ class CookieJarTest(unittest.TestCase):
     def testSet(self):
         cookie_jar = SimpleCookieJar()
         cookie_jar.set("a=b")
-        self.assertFalse(cookie_jar.jar, "Cookie with no domain should not be added to the jar")
+        self.assertFalse(
+            cookie_jar.jar, "Cookie with no domain should not be added to the jar"
+        )
 
         cookie_jar = SimpleCookieJar()
         cookie_jar.set("a=b; domain=.abc")
@@ -114,3 +117,7 @@ class CookieJarTest(unittest.TestCase):
         self.assertEqual(cookie_jar.get("x.abc.com"), "a=b; c=d")
         self.assertEqual(cookie_jar.get("abc.com.es"), "")
         self.assertEqual(cookie_jar.get("xabc.com"), "")
+
+
+if __name__ == "__main__":
+    unittest.main()
