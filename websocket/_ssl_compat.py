@@ -2,7 +2,7 @@
 _ssl_compat.py
 websocket - WebSocket client library for Python
 
-Copyright 2021 engn33r
+Copyright 2023 engn33r
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,14 +20,8 @@ __all__ = ["HAVE_SSL", "ssl", "SSLError", "SSLWantReadError", "SSLWantWriteError
 
 try:
     import ssl
-    from ssl import SSLError
-    from ssl import SSLWantReadError
-    from ssl import SSLWantWriteError
-    HAVE_CONTEXT_CHECK_HOSTNAME = False
-    if hasattr(ssl, 'SSLContext') and hasattr(ssl.SSLContext, 'check_hostname'):
-        HAVE_CONTEXT_CHECK_HOSTNAME = True
+    from ssl import SSLError, SSLWantReadError, SSLWantWriteError
 
-    __all__.append("HAVE_CONTEXT_CHECK_HOSTNAME")
     HAVE_SSL = True
 except ImportError:
     # dummy class of SSLError for environment without ssl support

@@ -1,3 +1,17 @@
+websocket-client (1.7.0-1) unstable; urgency=medium
+
+  * d/watch: switch from pypi tarballs to github tags.
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 23 Feb 2024 10:19:51 +0100
+
+websocket-client (1.2.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Do not move wsdump.py to /usr/bin, and get rid of the update-alternatives.
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 15 Feb 2022 09:49:29 +0100
+
 websocket-client (1.2.1-2) unstable; urgency=medium
 
   * Team upload to unstable.
